@@ -1,33 +1,51 @@
 // creamos la lista de contactos
-let contactos = [
-    {nombre: "Bryan Orellana",
-    telefono: "012345678"},
-    {nombre: "Francisco Avila",
-    telefono: "45218673"},
-    {nombre: "Javier Rodriguez",
-    telefono: "87549315"} 
+let contactos =[
+    {
+        identidad: "050219982547",
+        nombre:"Josue Alberto",
+        apellido:"Gutierrez Mendoza",
+        tel: "54289624",
+        ciudad: "San Pedro Sula",
+        direccion: "Barrio Cabañas, casa 918"
+    }
 ]
-//creamos funcion para agregar contacto
-function aggContacto(nombre,telefono) {
-    contactos.push({nombre,telefono})
+
+// modificamos la funcion para agregar los nuevos objetos de contactos
+function aggContacto(identidad,nombre,apellido,tel,ciudad,direccion) {
+    contactos.push({identidad,nombre,apellido,tel,ciudad,direccion});
 
 }
 
-//creamos funcion para borrar el contacto
-function borrarContacto(nombre) {
-    contactos = contactos.filter(contacto => contacto.nombre != nombre);
+//realizamos lo mismo modificando objetos del contacto
+function borrarContacto(identidad) {
+   contactos = contactos.filter(contacto => contacto.identidad != identidad);
 }
 
-//creamos funcion para imprimir todos los contactos
+//dejamos tal cual
 function imprimirContacto() {
     console.log("Lista de contactos actuales");
     console.log(contactos);
+    }
+
+
+//creamos la funcion actualizar contacto
+function actualizarContacto(identidad,nombre,apellido,tel,ciudad,direccion){
+    index = contactos.findIndex(contacto => contacto.identidad === identidad);
+    if (index != -1) {
+        contactos[index] = [nombre,apellido,tel,ciudad,direccion];
+        
+    }
 }
 
+//Imprimimos en la consola
 
-aggContacto("Alberto Carcamo","99052486");
+aggContacto("050119972548","Adan Isai","Martinez Leon","99084527","El Progreso","Barrio El Centro, casa 775");
 console.log(contactos);
-borrarContacto("Alberto Carcamo");
+
+borrarContacto("050219982547");
+console.log(contactos);
+
+actualizarContacto("050119972548","Adan Isai","Martinez Leon","99084527","El Carrizal","Barrio La Kenedy, casa 225");
 console.log(contactos);
 
 imprimirContacto();
